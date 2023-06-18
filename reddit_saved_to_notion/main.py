@@ -18,16 +18,22 @@ except FileNotFoundError as e:
     print(e)
     print("Please check if the config.ini file is in the root of project")
     sys.exit(1)
+
+#getting the notion token and database ID
 notion_token = config["DEFAULT"]["notion_secret"]
 database_id = config["DEFAULT"]["database_id"]
+
+#reddit credentials
 kwargs = dict(client_id=config.get('REDDIT', 'client_id'),
               client_secret=config.get('REDDIT', 'client_secret'),
               password=config.get('REDDIT', 'password'),
               username=config.get('REDDIT', 'username'))
 username = config.get('REDDIT', 'username')
 
+
 saved_posts_list = []
 
+#authenticating with notion
 try:
     client = Client(auth=notion_token)
     database = client.databases.query(database_id=database_id)
@@ -36,6 +42,8 @@ except errors.APIResponseError as e:
     print(e)
     print("Please check the values in the config file")
     sys.exit(1)
+
+
 
 reddit = praw.Reddit(**kwargs, user_agent="bot by"+username)
 
