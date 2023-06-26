@@ -140,14 +140,6 @@ print(client.get_me(user_auth=False))
 
 #===========================================================================================================
 
-# oauth2_user_handler = tweepy.OAuth2UserHandler(
-#     client_id="OHI2RDl6REJMczFNZXhPQW42VkQ6MTpjaQ",
-#     redirect_uri="http://127.0.0.1:8888/oauth/twitter",
-#     scope=scopes,
-#     # Client Secret is only necessary if using a confidential client
-#     client_secret="rY22-RLbG_vPMiwzdGvUB5azetUCi6w8ghBhH_ePWIU77Ey8WX"
-# )
-
 
 # #get the authorization URL
 # auth_URL = oauth2_user_handler.get_authorization_url()
